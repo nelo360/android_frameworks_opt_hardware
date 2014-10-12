@@ -1,9 +1,5 @@
 /*
-<<<<<<< HEAD
- * Copyright (C) 2013 The CyanogenMod Project
-=======
- * Copyright (C) 2013 Xiao-Long Chen <chenxiaolong@cxl.epac.to>
->>>>>>> 4acfb64e4b16216e0a82897227b0e031469a258a
+ * Copyright (C) 2014 The CyanogenMod Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,32 +17,42 @@
 package org.cyanogenmod.hardware;
 
 /**
- * Glove mode / high touch sensitivity
+ * Sunlight Readability Enhancement support, aka Facemelt Mode.
+ *
+ * Brightens up the screen via image processing or other tricks when
+ * under aggressive lighting conditions. Usually depends on CABC
+ * support.
  */
-public class HighTouchSensitivity {
+public class SunlightEnhancement {
 
     /**
-     * Whether device supports high touch sensitivity.
+     * Whether device supports SRE
      *
      * @return boolean Supported devices must return always true
      */
     public static boolean isSupported() { return false; }
 
     /**
-     * This method return the current activation status of high touch sensitivity
+     * This method return the current activation status of SRE
      *
-     * @return boolean Must be false if high touch sensitivity is not supported or not activated,
-     * or the operation failed while reading the status; true in any other case.
+     * @return boolean Must be false when SRE is not supported or not activated, or
+     * the operation failed while reading the status; true in any other case.
      */
     public static boolean isEnabled() { return false; }
 
     /**
-     * This method allows to setup high touch sensitivity status.
+     * This method allows to setup SRE.
      *
-     * @param status The new high touch sensitivity status
-     * @return boolean Must be false if high touch sensitivity is not supported or the operation
+     * @param status The new SRE status
+     * @return boolean Must be false if SRE is not supported or the operation
      * failed; true in any other case.
      */
     public static boolean setEnabled(boolean status) { return false; }
 
+    /**
+     * Whether adaptive backlight (CABL / CABC) is required to be enabled
+     *
+     * @return boolean False if adaptive backlight is not a dependency
+     */
+    public static boolean isAdaptiveBacklightRequired() { return true; }
 }
